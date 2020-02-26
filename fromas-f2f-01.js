@@ -1,4 +1,4 @@
-// Objects
+// Objects & Arrays
 // Dot Assignment
 
 var person = {};
