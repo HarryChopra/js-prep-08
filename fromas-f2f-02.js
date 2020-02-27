@@ -169,3 +169,119 @@ console.log(
 		return `broken ${item}`;
 	})
 );
+
+// custom filter
+
+_.filter = function(list, cb) {
+	//creating a new array
+	const storage = [];
+	// loop through the array
+	for (let i = 0; i < list.length; i++) {
+		if (cb(list[i], i, list) === true) {
+			storage.push(list[i]);
+		}
+	}
+	return storage;
+};
+
+//can be written as
+_.filter = function(list, cb) {
+	const storage = [];
+	_.each(list, function(item, i, list) {
+		if (cb(item, i, list) === true) {
+			storage.push(item);
+		}
+	});
+	return storage;
+};
+
+// application
+
+console.log(
+	_.filter(['candlestick', 'lead pipe', 'revolver'], function(item, ind, list) {
+		return item == 'candlestick';
+	})
+);
+
+const videoData = [
+	{
+		name: 'Miss Scarlet',
+		present: true,
+		rooms: [
+			{ kitchen: false },
+			{ ballroom: false },
+			{ conservatory: false },
+			{ 'dining room': false },
+			{ 'billiard room': false },
+			{ library: false }
+		]
+	},
+	{
+		name: 'Mrs. White',
+		present: false,
+		rooms: [
+			{ kitchen: false },
+			{ ballroom: false },
+			{ conservatory: false },
+			{ 'dining room': false },
+			{ 'billiard room': false },
+			{ library: false }
+		]
+	},
+	{
+		name: 'Reverend Green',
+		present: true,
+		rooms: [
+			{ kitchen: false },
+			{ ballroom: false },
+			{ conservatory: false },
+			{ 'dining room': false },
+			{ 'billiard room': false },
+			{ library: false }
+		]
+	},
+	{
+		name: 'Rusty',
+		present: false,
+		rooms: [
+			{ kitchen: false },
+			{ ballroom: false },
+			{ conservatory: false },
+			{ 'dining room': false },
+			{ 'billiard room': false },
+			{ library: false }
+		]
+	},
+	{
+		name: 'Colonel Mustard',
+		present: true,
+		rooms: [
+			{ kitchen: false },
+			{ ballroom: false },
+			{ conservatory: false },
+			{ 'dining room': false },
+			{ 'billiard room': false },
+			{ library: false }
+		]
+	},
+	{
+		name: 'Professor Plum',
+		present: true,
+		rooms: [
+			{ kitchen: false },
+			{ ballroom: false },
+			{ conservatory: false },
+			{ 'dining room': false },
+			{ 'billiard room': false },
+			{ library: false }
+		]
+	}
+];
+
+// Return objects where people who are present
+
+console.log(
+	_.filter(videoData, function(item, ind, list) {
+		return item.present;
+	})
+);
