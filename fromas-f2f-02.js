@@ -79,3 +79,27 @@ _.each = function(list, cb) {
 //application
 _.each(suspects, createSuspectList);
 console.log(suspectList);
+
+// Improving and making verbose the custom function
+
+_.each = function(list, cb) {
+	for (let i = 0; i < list.length; i++) {
+		cb(list[i], i); // list, index, item
+	}
+};
+
+var siblings = ['Loius', 'Charlotte', 'George'];
+
+//application
+
+_.each(siblings, function(name, i) {
+	if (siblings[i + 1]) {
+		console.log(`${name}, is younger than ${siblings[i + 1]}.`);
+	} else {
+		console.log(`${name} is the oldest.`);
+	}
+});
+
+//Loius, is younger than Charlotte.
+//Charlotte, is younger than George.
+//George is the oldest.
