@@ -103,3 +103,40 @@ _.each(siblings, function(name, i) {
 //Loius, is younger than Charlotte.
 //Charlotte, is younger than George.
 //George is the oldest.
+
+// write a custom each function, again
+
+var _ = {
+	each: function(list, cbfn) {
+		// is the list an array?
+		if (Array.isArray(list)) {
+			for (let i = 0; i < list.length; i++) {
+				cbfn(list[i], i, list);
+			}
+		} else {
+			// is the list in an object
+			for (let key in list) {
+				cbfn(list[key], key, list);
+			}
+		}
+	}
+};
+
+_.each(['Sean Connery', 'Pierce Brosnan', 'Daniel Craig'], function(name, i, list) {
+	if (list[i + 1]) {
+		console.log(`${name}, is older than ${list[i + 1]}`);
+	} else {
+		console.log(`${name}, is the youngest.`);
+	}
+});
+
+// _.each({ first: 'George', second: 'Charlotte', third: 'Louis' }, function(name, i, list) {
+// 	var listLength = Object.keys(list).length;
+// 	if (listLength > 1) {
+// 		for (let i = 0; i < listLength; i++) {
+// 			console.log(`${name}, is older than ${list[Object.keys(list)[i]]}`);
+// 		}
+// 	} else {
+// 		console.log(`${name}, is the youngest.`);
+// 	}
+// });
