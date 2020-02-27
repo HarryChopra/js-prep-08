@@ -140,3 +140,32 @@ _.each(['Sean Connery', 'Pierce Brosnan', 'Daniel Craig'], function(name, i, lis
 // 		console.log(`${name}, is the youngest.`);
 // 	}
 // });
+
+// Write a custom map function
+
+_.map = function(list, cb) {
+	temp = [];
+
+	for (let item of list) {
+		temp.push(cb(item));
+	}
+	return temp;
+};
+// can also be written as :
+
+_.map = function(list, cb) {
+	temp = [];
+
+	_.each(list, function(item, i, list) {
+		temp.push(cb(item, i, list));
+	});
+	return temp;
+};
+
+// Application
+
+console.log(
+	_.map(['candlestick', 'lead pipe', 'revolver'], function(item) {
+		return `broken ${item}`;
+	})
+);
