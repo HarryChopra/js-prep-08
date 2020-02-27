@@ -51,6 +51,7 @@ function CreateSuspectObjects(name) {
 var suspects = ['Miss Scarlet', 'Colonel Mustard', 'Mr. White'];
 
 var suspectList = [];
+var newSuspectList = [];
 
 function createSuspectList() {
 	for (let suspect of suspects) {
@@ -58,9 +59,23 @@ function createSuspectList() {
 	}
 }
 
-createSuspectList();
+//// createSuspectList();
 console.log(suspectList);
 // [ { name: 'Miss Scarlet', color: 'Scarlet', speak: [λ: speak] },
 //  { name: 'Colonel Mustard', color: 'Mustard', speak: [λ: speak] },
 //  { name: 'Mr. White', color: 'White', speak: [λ: speak] } ]
-suspectList[1].speak(); // My name is Colonel Mustard
+//// suspectList[1].speak(); // My name is Colonel Mustard
+
+// Achieve the same functionality by writing a _.each function that takes the input list and call back function as two arguments.
+
+//writing a custom function
+var _ = {};
+_.each = function(list, cb) {
+	for (let item of list) {
+		cb(item);
+	}
+};
+
+//application
+_.each(suspects, createSuspectList);
+console.log(suspectList);
