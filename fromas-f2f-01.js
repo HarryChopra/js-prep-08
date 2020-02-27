@@ -54,3 +54,21 @@ console.log(yArr.length); // 1
 yArr[5] = 1;
 yArr; // [ 10, , , , , 1 ]
 console.log(yArr.length); // 6
+
+//Create an object using bracket and dot notation that represents the characters and related data you may find in a game of clue
+
+var game = {}; // intialise as an object literal
+game.murderer = '??';
+
+game['weapons'] = ['lasers', 'angry cats', 'dish soap'];
+//Because the data needs to be organised we rewrite this as
+game['weapons'] = [
+	{ type: 'lasers', location: 'lab' },
+	{ type: 'angry cats', location: 'conservatory' },
+	{ type: 'dish soap', location: 'library' }
+];
+
+game.name = [];
+game.name.push('Miss Scarlet');
+game.name.push('Mr. Green');
+console.log(game.name);
