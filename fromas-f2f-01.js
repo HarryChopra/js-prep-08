@@ -45,3 +45,12 @@ var plea = 'wouldShe';
 //Properties of an array can be written as:
 person['plea'] = 'I would never!';
 person; // [ name: 'Mrs. White', wouldShe: 'I would never!' ]
+
+var yArr = [];
+yArr.push(10);
+yArr; // [10]
+console.log(yArr.length); // 1
+
+yArr[5] = 1;
+yArr; // [ 10, , , , , 1 ]
+console.log(yArr.length); // 6
