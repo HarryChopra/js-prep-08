@@ -106,14 +106,13 @@ a; //1
 b; //[2,3]
 
 //swapping two values without temp
-var a = 1,
-	b = ((2)[
-		// var temp = a
-		// a = b
-		// b = temp
-		//can be written as
-		(a, b)
-	] = [b, a]);
+var a = 1;
+var b = 2;
+// var temp = a
+// a = b
+// b = temp
+//can be written as
+[a, b] = [b, a];
 a; //2
 b; //1
 
