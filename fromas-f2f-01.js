@@ -72,3 +72,59 @@ game.name = [];
 game.name.push('Miss Scarlet');
 game.name.push('Mr. Green');
 console.log(game.name);
+
+// Destructuring
+
+var obj = { first: 'Dan', last: 'Coelho' };
+var firstName = obj.first;
+var lastName = obj.second;
+
+// variable declarations
+var [first, last] = [true, false];
+first; // true
+last; // false
+// though this method of multiple assignment is convenient, its less verbose. the variable assignment statement can become long, unmanageable and error prone.
+
+var { first, second } = { second: 1, first: 0 };
+first; // 0
+second; // 1
+//Notice because we are using object types to create these variables, the order can interchange
+
+var myObj = { first: 'Hello', second: 'world' };
+var { first, second } = myObj;
+first; // Hello
+second; // World
+
+// Omitting certain values
+var [a, , c] = [1, 2, 3];
+a; //1
+c; //2
+
+//combining with spread
+var [a, ...b] = [1, 2, 3];
+a; //1
+b; //[2,3]
+
+//swapping two values without temp
+var a = 1,
+	b = ((2)[
+		// var temp = a
+		// a = b
+		// b = temp
+		//can be written as
+		(a, b)
+	] = [b, a]);
+a; //2
+b; //1
+
+//Nested destructuring
+var [a, [b, [c, d]]] = [1, [2, [[[3, 4], 5], 6]]];
+a; //1
+b; //2
+c; // [[3,4], 5]
+d; // 6
+
+//Freezing objects
+Object.freeze(obj);
+obj.firstName = 'Harry';
+obj; // {first: 'Dan', last: 'Coelho'}
